@@ -7,7 +7,6 @@
 #show: template
 #set text(style: "italic")
 #set par(justify: true)
-
 #for i in range(15, 25) [
 #set text(size: i * 1pt)
   #emoji.heart #lorem(14)
@@ -17,9 +16,8 @@
 
 > The template allows color changes and is suitable for handwritten fonts.
 ```typst
-#import "@preview/linedx2-sjtu:0.1.0": template
+#import "@preview/linedx2-sjtu:0.1.0": template, footer
 #import "@preview/kouhu:0.2.0": kouhu
-
 #show: template.with(
   fill: blue.darken(20%),
   footer: fill => {
@@ -29,12 +27,9 @@
 )
 // 演示秋鸿楷 https://mp.weixin.qq.com/s/CRnRsYu8ymlG9_oK6wmBag
 #set text(font: "Slideqiuhong", size: 22pt)
-#set par(justify: true)
-
+#set par(justify: true, first-line-indent: 2em)
 #align(center)[祝福]
-#for p in kouhu(builtin-text: "zhufu").children.filter(x => x.func() == text) [
-  #h(2em) #p \
-]
+#kouhu(builtin-text: "zhufu")
 ```
 
 ![zhufu example](assets/zhufu.png)
